@@ -7,6 +7,8 @@ namespace lab3
         static void Main(string[] args)
         {
             Console.WriteLine(fibonacci(50));
+
+            Console.WriteLine(SinTable.Sin(5));
         }
 
         public static long fibonacci(int n)
@@ -39,6 +41,29 @@ namespace lab3
             }
             return mem[n - 1] + mem[n - 2];
         }
+        class SinTable
+        {
+            static readonly int MAX = 360;
+            static private double[] sinTable;
+            static SinTable()
+            {
+                sinTable = new double[MAX];
+                for (int i = 0; i < sinTable.Length; i++)
+                {
+                    sinTable[i] = Math.Sin(i * Math.PI  / 180);
+                }
+            }
 
+            public static double Sin(int degree)
+            {
+                if(degree > 0)
+                {
+                    return sinTable[degree % MAX];
+                } else
+                {
+                    return -sinTable[-degree % MAX];
+                }
+            }
+        }
     }
 }
