@@ -65,5 +65,51 @@ namespace lab3
                 }
             }
         }
+
+        public class CashRegister
+        {
+            private static int ONE = 0;
+            private static int TWO = 1;
+            private static int FIVE = 2;
+
+            private readonly int[] _coins = new int[3];
+
+            public CashRegister(int[] coins)
+            {
+                _coins = coins;
+            }
+
+            int[] Payment(int[] income, int amount)
+            {
+                if (amount > getAmount(income))
+                {
+                    return new int[] { };
+                }
+
+                // warunki, które uniemożliwiają wykonanie
+            }
+
+            private int getAmount(int[] coins)
+            {
+                return (coins[0] * 1) + (coins[1] * 2) + (coins[2] * 5);
+            }
+
+            private int getRemainder(int[] income, int amount)
+            {
+                return getAmount(income) + amount;
+            }
+
+            private void registerCash(int[] income)
+            {
+                income[ONE] += _coins[ONE];
+                income[TWO] += _coins[TWO];
+                income[FIVE] += _coins[FIVE];
+            }
+
+            private int[] calculateRest(int rest)
+            {
+                //implementowanie obliczania liczby monet skladajacych sie na reszte
+            }
+        }
     }
 }
