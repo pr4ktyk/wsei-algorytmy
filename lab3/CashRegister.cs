@@ -62,7 +62,7 @@ namespace lab3
             while (_coins[ONE] > 0 && amount >= 1)
             {
                 rest[ONE]++;
-                amount -= 2;
+                amount -= 1;
             }
 
             if (amount > 0) return new int[] {};
