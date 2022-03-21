@@ -7,6 +7,13 @@ namespace lab3
         static void Main(string[] args)
         {
             Console.WriteLine($"Fibonacci(30): {fibonacci(30, null, null)}");
+
+            Console.WriteLine();
+
+            CashRegister bank = new CashRegister(1, 2, 4);
+            Console.WriteLine();
+            bank.Payment(new int[] { 0, 0, 2 }, 8);
+            Console.WriteLine(bank);
         }
 
         public static long fibonacci(int n)
@@ -77,52 +84,6 @@ namespace lab3
             }
         }
 
-        public class CashRegister
-        {
-            private static int ONE = 0;
-            private static int TWO = 1;
-            private static int FIVE = 2;
 
-            private readonly int[] _coins = new int[3];
-
-            public CashRegister(int[] coins)
-            {
-                _coins = coins;
-            }
-
-            int[] Payment(int[] income, int amount)
-            {
-                if (amount > getAmount(income))
-                {
-                    return new int[] { };
-                }
-                throw new NotImplementedException();
-                // warunki, które uniemożliwiają wykonanie
-            }
-
-            private int getAmount(int[] coins)
-            {
-                return (coins[0] * 1) + (coins[1] * 2) + (coins[2] * 5);
-            }
-
-            private int getRemainder(int[] income, int amount)
-            {
-                return getAmount(income) + amount;
-            }
-
-            private void registerCash(int[] income)
-            {
-                income[ONE] += _coins[ONE];
-                income[TWO] += _coins[TWO];
-                income[FIVE] += _coins[FIVE];
-            }
-
-            private int[] calculateRest(int rest)
-            {
-                throw new NotImplementedException();
-                //implementowanie obliczania liczby monet skladajacych sie na reszte
-            }
-
-        }
     }
 }
