@@ -6,9 +6,7 @@ namespace lab3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(fibonacci(50));
-
-            Console.WriteLine(SinTable.Sin(5));
+            Console.WriteLine($"Fibonacci(30): {fibonacci(30, null, null)}");
         }
 
         public static long fibonacci(int n)
@@ -17,6 +15,18 @@ namespace lab3
             Array.Fill<long>(mem, -1);
             return fib(n, mem);
         }
+
+        public static long fibonacci(int n, long? a, long? b)
+        {
+            if (n < 0) throw new ArgumentException();
+            if (n == 0) return 0;
+            if (n == 1) return 1;
+
+            if (a == null) a = fibonacci(n-1, null, null);
+            if (b == null) b = fibonacci(n-2, null, null);
+            return (long)b + (long)a;
+        }
+
         private static long fib(int n, long[] mem)
         {
             if (n < 0)
@@ -41,6 +51,7 @@ namespace lab3
             }
             return mem[n - 1] + mem[n - 2];
         }
+
         class SinTable
         {
             static readonly int MAX = 360;
@@ -85,7 +96,7 @@ namespace lab3
                 {
                     return new int[] { };
                 }
-
+                throw new NotImplementedException();
                 // warunki, które uniemożliwiają wykonanie
             }
 
@@ -108,8 +119,10 @@ namespace lab3
 
             private int[] calculateRest(int rest)
             {
+                throw new NotImplementedException();
                 //implementowanie obliczania liczby monet skladajacych sie na reszte
             }
+
         }
     }
 }
